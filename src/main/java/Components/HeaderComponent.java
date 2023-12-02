@@ -1,14 +1,37 @@
 package Components;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.Step;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import pageObjects.BasePage;
+import pageObjects.HomePage;
 
-public class HeaderComponent {
+import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static java.text.MessageFormat.format;
+
+
+public class HeaderComponent extends BasePage {
+
+    protected ListCategories listCategories;
+    public LoginPage loginPage;
+
+    public HeaderComponent(WebDriver driver){
+        super(driver);
+        listCategories = PageFactory.initElements(driver, ListCategories.class);
+        loginPage = PageFactory.initElements(driver, LoginPage.class);
+    }
+
+
 
     @FindBy(className = "logo-box")
     private SelenideElement logoUaKinoClub;
 
-    @FindBy(xpath = "//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[1]/a")
+    @FindBy(xpath = "//*[contains(@href, '/filmy/')]/..")
     private SelenideElement filmsInHeaderButton;
 
     @FindBy(xpath = "//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[2]/a")
@@ -38,8 +61,11 @@ public class HeaderComponent {
     @FindBy(className = "show-fav")
     private SelenideElement favoritesInHeaderButton;
 
-    @FindBy(className = "show-login")
+    @FindBy(xpath = "//*[@class='show-login']")
     private SelenideElement loginInHeaderButton;
+
+    @FindBy(className = "show-login")
+    private SelenideElement myCabinetButton;
 
     @FindBy(id = "ajax_search")
     private SelenideElement searchField;
@@ -47,11 +73,16 @@ public class HeaderComponent {
     @FindBy(xpath = "//*[@id='quicksearch']/div")
     private SelenideElement searchButton;
 
+    @Step("Get 'My cabinet' button text")
+    public String getMyCabinetButtonText(){
+        return this.myCabinetButton.getText();
+    }
 
     public void clickLogoUaKinoClub(){
         logoUaKinoClub.click();
     }
 
+    @Step("")
     public void clickFilmsInHeaderButton(){
         filmsInHeaderButton.click();
     }
@@ -92,6 +123,7 @@ public class HeaderComponent {
         favoritesInHeaderButton.click();
     }
 
+    @Step("Click login button")
     public void clickLoginInHeaderButton(){
         loginInHeaderButton.click();
     }
@@ -104,16 +136,10 @@ public class HeaderComponent {
         searchButton.click();
     }
 
+//    public void moveToFilmsInHeaderButton(int index){
+//        SelenideElement element = Selenide.$x(format("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[%s]/a", index));
+//
+//    }
 
-    
-//System.setProperty("webdrive.chrome.driver", "D:\\WebDriver\\chromedriver-win64\\chromedriver");
-//    WebDriver driver = new ChromeDriver();
-//        driver.get("https://uakino.club/");
-//    String text = driver.findElement(By.xpath("//div[contains(@class, 'top-header')]/descendant::p[@class='sidebar-title']")).getText();
-//        System.out.println(text);
-//        driver.findElement(By.xpath("//input[@id='ajax_search']")).sendKeys("Loki");
-//        driver.findElement(By.xpath("//*[@class='search-box']//button")).click();
-//    boolean isDisplayed = driver.findElement(By.xpath("//a[@class='logo-box']")).isDisplayed();
-//        System.out.println(isDisplayed);
 
 }

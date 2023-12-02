@@ -1,5 +1,8 @@
 package utils;
 
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.WebDriver;
+
 import java.time.Duration;
 
 public class PropertyHelper {
