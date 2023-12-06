@@ -1,9 +1,8 @@
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
-import pageObjects.components.HeaderComponent;
 
+import static constants.Constants.*;
 import static org.testng.Assert.assertEquals;
-
 
 public class HomePageTests extends BaseTest {
 
@@ -14,7 +13,7 @@ public class HomePageTests extends BaseTest {
         homePage.goTo()
                 .headerComponent
                 .clickLoginInHeaderButton()
-                .login("Андрій Тимчук", "hcbbmnv4662");
+                .login(email, pass);
 
         assertEquals(homePage.headerComponent.getMyCabinetButtonText(), "Miй кабінет",
                 "My cabinet button should have text Мій кабінет");

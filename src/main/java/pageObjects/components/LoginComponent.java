@@ -75,6 +75,4 @@ public class LoginComponent {
     public void clickCloseLoginPageButton() {
         closeLoginPageButton.click();
     }
-
-
 }

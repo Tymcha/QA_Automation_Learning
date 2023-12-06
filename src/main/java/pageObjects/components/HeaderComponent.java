@@ -8,21 +8,21 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class HeaderComponent {
 
-    private SelenideElement logoUaKinoClub = $x("//*[@class='logo-box']");
-    private SelenideElement filmsInHeaderButton = $x("//*[contains(@href, '/filmy/')]/..");
-    private SelenideElement seriesInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[2]/a");
-    private SelenideElement cartoonsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[3]/a");
-    private SelenideElement collectionsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[4]/a");
-    private SelenideElement communitiesInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[5]/a");
-    private SelenideElement announcementsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[6]/a");
-    private SelenideElement findYearInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[7]/a");
-    private SelenideElement top100InHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[8]/a");
-    private SelenideElement emojiRatingInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/div/a[2]");
-    private SelenideElement favoritesInHeaderButton = $x("//*[@class = 'show-fav']");
-    private SelenideElement loginInHeaderButton = $x("//*[@class='show-login']");
-    private SelenideElement myCabinetButton = $x("//*[@class='show-login']");
-    private SelenideElement searchField = $x("//*[@id='ajax_search']");
-    private SelenideElement searchButton = $x("//*[@id='quicksearch']/div");
+    private final SelenideElement logoUaKinoClub = $x("//*[@class='logo-box']");
+    private final SelenideElement filmsInHeaderButton = $x("//*[contains(@href, '/filmy/')]/..");
+    private final SelenideElement seriesInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[2]/a");
+    private final SelenideElement cartoonsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[3]/a");
+    private final SelenideElement collectionsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[4]/a");
+    private final SelenideElement communitiesInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[5]/a");
+    private final SelenideElement announcementsInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[6]/a");
+    private final SelenideElement findYearInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[7]/a");
+    private final SelenideElement top100InHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[8]/a");
+    private final SelenideElement emojiRatingInHeaderButton = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/div/a[2]");
+    private final SelenideElement favoritesInHeaderButton = $x("//*[@class = 'show-fav']");
+    private final SelenideElement loginInHeaderButton = $x("//*[@class='show-login']");
+    private final SelenideElement myCabinetButton = $x("//*[@class='show-login']");
+    private final SelenideElement searchField = $x("//*[@id='ajax_search']");
+    private final SelenideElement searchButton = $x("//*[@id='quicksearch']/div");
 
     @Step("Get 'My cabinet' button text")
     public String getMyCabinetButtonText() {
