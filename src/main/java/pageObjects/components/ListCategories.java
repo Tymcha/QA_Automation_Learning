@@ -1,34 +1,25 @@
-package Components;
+package pageObjects.components;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
-import pageObjects.BasePage;
-import pageObjects.HomePage;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.$x;
-import static java.text.MessageFormat.format;
 
-public class ListCategories {
-    //*[@id="all-wrap"]/div/div/header/div/div[1]/nav/ul/li[2]/div/ul[1]/li[1]
+public class ListCategories{
+    SelenideElement movieCategories = $x("//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[2]/div/ul[1]/li[1]");
 
-    @FindBy(xpath = "//*[@id='all-wrap']/div/div/header/div/div[1]/nav/ul/li[2]/div/ul[1]/li[1]")
-    SelenideElement movieCategories;
+    public List<SelenideElement> categories;
 
-    public List<SelenideElement> categoties;
-    public ListCategories (SelenideElement element, WebDriver driver){
-        this.categoties = element.$$x("//*[@class='hidden-menu clearfix']//ul//li");
+    public ListCategories(SelenideElement element, WebDriver driver) {
+        this.categories = element.$$x("//*[@class='hidden-menu clearfix']//ul//li");
     }
 
-    public void selectCategory(String category){
+    public void selectCategory(String category) {
         SelenideElement categ = this
-                .categoties
+                .categories
                 .stream()
                 .filter(categoty -> categoty.getText().equals(category))
                 .collect(Collectors.toList())

@@ -1,15 +1,15 @@
-import Components.HeaderComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeTest;
-import pageObjects.HomePage;
+import pageObjects.pages.HomePage;
+import pageObjects.components.HeaderComponent;
+import pageObjects.components.ListCategories;
+import pageObjects.components.LoginComponent;
 
 public class BaseTest {
-    protected HomePage homePage;
-    protected WebDriver driver;
-    @BeforeTest
-    public void testsSetup(){
-        homePage = PageFactory.initElements(driver, HomePage.class);
-    }
+    protected HomePage homePage = new HomePage();
 
+    @BeforeTest
+    public void testsSetup() {
+    }
 }

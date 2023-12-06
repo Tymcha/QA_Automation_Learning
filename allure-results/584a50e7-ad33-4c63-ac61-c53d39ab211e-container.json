@@ -1,0 +1,1 @@
+{"uuid":"584a50e7-ad33-4c63-ac61-c53d39ab211e","name":"QA_Automation_Learning","children":["3a61d83e-ed01-4082-bb78-c9f031748d2a"],"befores":[{"name":"testsSetup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1701848000678,"stop":1701848000681}],"afters":[],"start":1701848000663,"stop":1701848012688}
